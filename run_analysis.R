@@ -24,7 +24,11 @@ dat <- as.data.frame(dat) #coerces data to data.frame
 
 
 #outputs a single data frame with only the means of the columnns by subject and actvity
-dat %>% group_by(subject, activity) %>% summarise_if(is.numeric,mean)
+a <- dat %>% group_by(subject, activity) %>% summarise_if(is.numeric,mean)
+
+write.table(a, file="results.txt", row.names = FALSE)
+
+a
 
 }
 
